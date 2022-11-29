@@ -1,8 +1,11 @@
 package kim.figure.site.common.category;
 
-import jakarta.persistence.*;
 import kim.figure.site.common.content.Content;
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
@@ -11,7 +14,10 @@ import java.util.List;
  * date           : 2022. 11. 18.
  * description    :
  */
-@Entity(name = "category")
+@Document
+@Builder
+@AllArgsConstructor
+@Getter
 public class Category {
     @Id
     private String id;
@@ -22,13 +28,13 @@ public class Category {
 
     private Integer depth;
 
-    @OneToMany(fetch = FetchType.EAGER)
+
     private List<Category> childCategoryList;
 
-    @ManyToOne
+
     private Category parentCategory;
 
-    @OneToMany(fetch = FetchType.LAZY)
+
     private List<Content> contentEntityList;
 
 
