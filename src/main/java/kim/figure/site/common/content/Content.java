@@ -2,14 +2,11 @@ package kim.figure.site.common.content;
 
 import kim.figure.site.common.category.Category;
 import kim.figure.site.common.tag.Tag;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import lombok.*;
+import org.springframework.data.annotation.*;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.Instant;
 import java.util.List;
 
 /**
@@ -23,7 +20,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@ToString
 public class Content {
+
+    @Transient
+    public static final String SEQUENCE_NAME = "content_sequence";
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @Id
     private Long id;
@@ -38,11 +43,13 @@ public class Content {
 
     private String description;
 
-    private Boolean draft = true;
+    @CreatedDate
+    private Instant createdAt;
 
-    private ZonedDateTime createdAt = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
+    @LastModifiedDate
+    private Instant lastModifiedAt;
 
-    private ZonedDateTime publishAt;
+    private Instant publishAt;
 
     private List<String> ogKeywordList;
 
@@ -50,15 +57,16 @@ public class Content {
 
     private List<Tag> tagList;
 
-    private String publicSlug;
+    @DBRef
+    private List<Category> categoryList;
 
     //ogTag image
     String ogImage;
 
-    //og tag description
-    String ogDescription;
-
     Boolean isPublished;
+
+    @Version
+    private Integer version;
 
 
 

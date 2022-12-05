@@ -28,12 +28,7 @@ public class Category {
 
     private Integer depth;
 
-
-    private List<Category> childCategoryList;
-
-
     private Category parentCategory;
-
 
     private List<Content> contentEntityList;
 
