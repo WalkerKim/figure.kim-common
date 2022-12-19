@@ -20,15 +20,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 @ToString
 public class Content {
 
     @Transient
     public static final String SEQUENCE_NAME = "content_sequence";
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     @Id
     private Long id;
@@ -43,18 +40,17 @@ public class Content {
 
     private String description;
 
-    @CreatedDate
     private Instant createdAt;
 
-    @LastModifiedDate
+    private Boolean isDraft;
+
     private Instant lastModifiedAt;
 
     private Instant publishAt;
 
     private List<String> ogKeywordList;
 
-    private Category category;
-
+    @DBRef
     private List<Tag> tagList;
 
     @DBRef
@@ -65,7 +61,7 @@ public class Content {
 
     Boolean isPublished;
 
-    @Version
+
     private Integer version;
 
 

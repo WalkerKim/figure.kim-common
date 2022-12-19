@@ -1,10 +1,9 @@
 package kim.figure.site.common.category;
 
 import kim.figure.site.common.content.Content;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -18,6 +17,8 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @Getter
+@EqualsAndHashCode
+@Setter
 public class Category {
     @Id
     private String id;
@@ -30,10 +31,8 @@ public class Category {
 
     private Category parentCategory;
 
+    @DBRef
+    private List<Category> childCategory;
+
     private List<Content> contentEntityList;
-
-
-
-
-
 }

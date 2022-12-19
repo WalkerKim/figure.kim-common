@@ -1,7 +1,10 @@
 package kim.figure.site.common.tag;
 
 import kim.figure.site.common.content.Content;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
@@ -11,10 +14,17 @@ import java.util.List;
  * description    :
  */
 
+@Document
+@Getter
+@Setter
 public class Tag {
+
+    public Tag(String id) {
+        this.id = id;
+    }
     @Id
     private String id;
 
-    List<Content> contentEntityList;
+//    List<Content> contentEntityList;
 
 }
