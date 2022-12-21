@@ -32,7 +32,7 @@ public class Category {
     private Category parentCategory;
 
     @DBRef
-    private List<Category> childCategory;
+    private List<Category> childCategoryList;
 
     private List<Content> contentEntityList;
 }
