@@ -29,8 +29,6 @@ public class Category {
 
     private Integer depth;
 
-    private Category parentCategory;
-
     @DBRef
     private List<Category> childCategoryList;
 
