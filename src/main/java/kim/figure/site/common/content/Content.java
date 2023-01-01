@@ -56,6 +56,8 @@ public class Content {
     @DBRef
     private List<Category> categoryList;
 
+    private List<Long> recommendPostIdList;
+
     //ogTag image
     String ogImage;
 
