@@ -1,7 +1,9 @@
 package kim.figure.site.common.tag;
 
 import kim.figure.site.common.content.Content;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,6 +19,7 @@ import java.util.List;
 @Document
 @Getter
 @Setter
+@NoArgsConstructor
 public class Tag {
 
     public Tag(String id) {
