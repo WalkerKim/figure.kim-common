@@ -59,10 +59,11 @@ public class Content {
     private List<Long> recommendPostIdList;
 
     //ogTag image
-    String ogImage;
+    private String ogImage;
 
-    Boolean isPublished;
+    private Boolean isPublished;
 
+    private Long recommendStat;
 
     private Integer version;
 
